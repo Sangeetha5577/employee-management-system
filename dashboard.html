@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Employee Management System</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="brand-icon">&#128188;</div>
+                <div class="brand-text">
+                    <h2>EMS Portal</h2>
+                    <span>Admin Panel</span>
+                </div>
+            </div>
+            
+            <ul class="sidebar-menu">
+                <li>
+                    <a href="/dashboard" class="active">
+                        <span class="menu-icon">&#128202;</span>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/add-employee">
+                        <span class="menu-icon">&#10133;</span>
+                        <span>Add Employee</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/employees">
+                        <span class="menu-icon">&#128101;</span>
+                        <span>Employee List</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/search">
+                        <span class="menu-icon">&#128269;</span>
+                        <span>Search Employee</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/logout">
+                        <span class="menu-icon">&#128682;</span>
+                        <span>Logout</span>
+                    </a>
+                </li>
+            </ul>
+            
+            <div class="sidebar-footer">
+                STQA Academic Project &copy; 2026
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Topbar Header -->
+            <header class="topbar">
+                <div class="topbar-title">
+                    <h1>Administrator Dashboard</h1>
+                    <p>Overview of organizational workforce and system statistics</p>
+                </div>
+                <div class="user-badge">
+                    <div class="user-avatar">S</div>
+                    <span class="user-name">Sanman</span>
+                </div>
+            </header>
+
+            <div class="content-body">
+                {{ALERT_MESSAGE}}
+
+                <!-- Dynamic Statistics Cards -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon total">&#128101;</div>
+                        <div class="stat-info">
+                            <h3>{{TOTAL_EMPLOYEES}}</h3>
+                            <p>Total Employees</p>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon active">&#9989;</div>
+                        <div class="stat-info">
+                            <h3>{{ACTIVE_EMPLOYEES}}</h3>
+                            <p>Active Employees</p>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon inactive">&#9940;</div>
+                        <div class="stat-info">
+                            <h3>{{INACTIVE_EMPLOYEES}}</h3>
+                            <p>Inactive Employees</p>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon departments">&#127970;</div>
+                        <div class="stat-info">
+                            <h3>{{TOTAL_DEPARTMENTS}}</h3>
+                            <p>Total Departments</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recently Added Employees Card -->
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Recently Added Employees</h2>
+                        <a href="/add-employee" class="btn btn-primary" style="padding: 7px 14px; font-size: 13px;">+ Register New Employee</a>
+                    </div>
+                    <div class="card-body" style="padding: 0;">
+                        <div class="table-responsive">
+                            <table class="custom-table">
+                                <thead>
+                                    <tr>
+                                        <th>Employee ID</th>
+                                        <th>Employee Name</th>
+                                        <th>Department</th>
+                                        <th>Job Role</th>
+                                        <th>Joining Date</th>
+                                        <th>Status</th>
+                                        <th style="text-align: right;">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {{RECENT_EMPLOYEE_ROWS}}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

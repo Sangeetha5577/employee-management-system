@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Profile - Employee Management System</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="brand-icon">&#128188;</div>
+                <div class="brand-text">
+                    <h2>EMS Portal</h2>
+                    <span>Admin Panel</span>
+                </div>
+            </div>
+            
+            <ul class="sidebar-menu">
+                <li>
+                    <a href="/dashboard">
+                        <span class="menu-icon">&#128202;</span>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/add-employee">
+                        <span class="menu-icon">&#10133;</span>
+                        <span>Add Employee</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/employees">
+                        <span class="menu-icon">&#128101;</span>
+                        <span>Employee List</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/search">
+                        <span class="menu-icon">&#128269;</span>
+                        <span>Search Employee</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/logout">
+                        <span class="menu-icon">&#128682;</span>
+                        <span>Logout</span>
+                    </a>
+                </li>
+            </ul>
+            
+            <div class="sidebar-footer">
+                STQA Academic Project &copy; 2026
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <header class="topbar">
+                <div class="topbar-title">
+                    <h1>Employee Profile</h1>
+                    <p>Detailed view of employee workforce record</p>
+                </div>
+                <div class="user-badge">
+                    <div class="user-avatar">S</div>
+                    <span class="user-name">Sanman</span>
+                </div>
+            </header>
+
+            <div class="content-body">
+                {{ALERT_MESSAGE}}
+
+                <div class="profile-card">
+                    <div class="profile-header">
+                        <div class="profile-avatar-large">{{EMP_INITIAL}}</div>
+                        <div class="profile-meta">
+                            <h2>{{EMP_NAME}}</h2>
+                            <p>{{EMP_ROLE}} &bull; {{EMP_DEPT}}</p>
+                        </div>
+                    </div>
+
+                    <div class="profile-grid">
+                        <div class="profile-field">
+                            <div class="field-label">Employee ID</div>
+                            <div class="field-value"><code>{{EMP_ID}}</code></div>
+                        </div>
+
+                        <div class="profile-field">
+                            <div class="field-label">Employee Name</div>
+                            <div class="field-value">{{EMP_NAME}}</div>
+                        </div>
+
+                        <div class="profile-field">
+                            <div class="field-label">Email Address</div>
+                            <div class="field-value"><a href="mailto:{{EMP_EMAIL}}">{{EMP_EMAIL}}</a></div>
+                        </div>
+
+                        <div class="profile-field">
+                            <div class="field-label">Phone Number</div>
+                            <div class="field-value">{{EMP_PHONE}}</div>
+                        </div>
+
+                        <div class="profile-field">
+                            <div class="field-label">Gender</div>
+                            <div class="field-value">{{EMP_GENDER}}</div>
+                        </div>
+
+                        <div class="profile-field">
+                            <div class="field-label">Department</div>
+                            <div class="field-value"><span class="badge badge-dept">{{EMP_DEPT}}</span></div>
+                        </div>
+
+                        <div class="profile-field">
+                            <div class="field-label">Job Role</div>
+                            <div class="field-value">{{EMP_ROLE}}</div>
+                        </div>
+
+                        <div class="profile-field">
+                            <div class="field-label">Salary</div>
+                            <div class="field-value">{{EMP_SALARY}}</div>
+                        </div>
+
+                        <div class="profile-field">
+                            <div class="field-label">Joining Date</div>
+                            <div class="field-value">{{EMP_JOIN_DATE}}</div>
+                        </div>
+
+                        <div class="profile-field">
+                            <div class="field-label">Employee Status</div>
+                            <div class="field-value">{{EMP_STATUS_BADGE}}</div>
+                        </div>
+                    </div>
+
+                    <!-- Required working buttons: Edit Profile & Back to Employee List -->
+                    <div class="profile-actions">
+                        <a href="/edit-employee?id={{EMP_ID}}" class="btn btn-primary">&#9998; Edit Profile</a>
+                        <a href="/employees" class="btn btn-secondary">&#8592; Back to Employee List</a>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

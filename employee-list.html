@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Directory - Employee Management System</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="brand-icon">&#128188;</div>
+                <div class="brand-text">
+                    <h2>EMS Portal</h2>
+                    <span>Admin Panel</span>
+                </div>
+            </div>
+            
+            <ul class="sidebar-menu">
+                <li>
+                    <a href="/dashboard">
+                        <span class="menu-icon">&#128202;</span>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/add-employee">
+                        <span class="menu-icon">&#10133;</span>
+                        <span>Add Employee</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/employees" class="active">
+                        <span class="menu-icon">&#128101;</span>
+                        <span>Employee List</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/search">
+                        <span class="menu-icon">&#128269;</span>
+                        <span>Search Employee</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/logout">
+                        <span class="menu-icon">&#128682;</span>
+                        <span>Logout</span>
+                    </a>
+                </li>
+            </ul>
+            
+            <div class="sidebar-footer">
+                STQA Academic Project &copy; 2026
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <header class="topbar">
+                <div class="topbar-title">
+                    <h1>Employee Directory</h1>
+                    <p>Comprehensive roster of all registered employees in the organization</p>
+                </div>
+                <div class="user-badge">
+                    <div class="user-avatar">S</div>
+                    <span class="user-name">Sanman</span>
+                </div>
+            </header>
+
+            <div class="content-body">
+                {{ALERT_MESSAGE}}
+
+                <div class="card">
+                    <div class="card-header">
+                        <h2>All Employees (Total: {{TOTAL_COUNT}})</h2>
+                        <div style="display: flex; gap: 10px;">
+                            <a href="/search" class="btn btn-secondary" style="font-size: 13px;">&#128269; Quick Search</a>
+                            <a href="/add-employee" class="btn btn-primary" style="font-size: 13px;">+ Add New Employee</a>
+                        </div>
+                    </div>
+                    <div class="card-body" style="padding: 0;">
+                        <div class="table-responsive">
+                            <table class="custom-table">
+                                <thead>
+                                    <tr>
+                                        <th>Employee ID</th>
+                                        <th>Employee Name</th>
+                                        <th>Email</th>
+                                        <th>Phone</th>
+                                        <th>Department</th>
+                                        <th>Job Role</th>
+                                        <th>Salary</th>
+                                        <th>Joining Date</th>
+                                        <th>Status</th>
+                                        <th style="text-align: right; min-width: 170px;">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {{EMPLOYEE_ROWS}}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

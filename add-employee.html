@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Employee - Employee Management System</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="brand-icon">&#128188;</div>
+                <div class="brand-text">
+                    <h2>EMS Portal</h2>
+                    <span>Admin Panel</span>
+                </div>
+            </div>
+            
+            <ul class="sidebar-menu">
+                <li>
+                    <a href="/dashboard">
+                        <span class="menu-icon">&#128202;</span>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/add-employee" class="active">
+                        <span class="menu-icon">&#10133;</span>
+                        <span>Add Employee</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/employees">
+                        <span class="menu-icon">&#128101;</span>
+                        <span>Employee List</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/search">
+                        <span class="menu-icon">&#128269;</span>
+                        <span>Search Employee</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/logout">
+                        <span class="menu-icon">&#128682;</span>
+                        <span>Logout</span>
+                    </a>
+                </li>
+            </ul>
+            
+            <div class="sidebar-footer">
+                STQA Academic Project &copy; 2026
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <header class="topbar">
+                <div class="topbar-title">
+                    <h1>Add New Employee</h1>
+                    <p>Register a new employee record into the CSV database</p>
+                </div>
+                <div class="user-badge">
+                    <div class="user-avatar">S</div>
+                    <span class="user-name">Sanman</span>
+                </div>
+            </header>
+
+            <div class="content-body">
+                {{ALERT_MESSAGE}}
+
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Employee Information Form</h2>
+                        <a href="/employees" class="btn btn-secondary" style="font-size: 13px;">View All Employees</a>
+                    </div>
+                    <div class="card-body">
+                        <form action="/add-employee" method="POST">
+                            <div class="form-grid">
+                                <!-- Field 1: Employee ID -->
+                                <div class="form-group">
+                                    <label for="id">Employee ID <span class="required">*</span></label>
+                                    <input type="text" id="id" name="id" class="form-control" placeholder="e.g. EMP106" value="{{VAL_ID}}" required>
+                                    <span class="form-hint">Must be unique across all employee records</span>
+                                </div>
+
+                                <!-- Field 2: Employee Name -->
+                                <div class="form-group">
+                                    <label for="name">Employee Full Name <span class="required">*</span></label>
+                                    <input type="text" id="name" name="name" class="form-control" placeholder="e.g. Alice Walker" value="{{VAL_NAME}}" required>
+                                </div>
+
+                                <!-- Field 3: Email Address -->
+                                <div class="form-group">
+                                    <label for="email">Email Address <span class="required">*</span></label>
+                                    <input type="email" id="email" name="email" class="form-control" placeholder="e.g. alice.w@company.com" value="{{VAL_EMAIL}}" required>
+                                </div>
+
+                                <!-- Field 4: Phone Number -->
+                                <div class="form-group">
+                                    <label for="phone">Phone Number <span class="required">*</span></label>
+                                    <input type="text" id="phone" name="phone" class="form-control" placeholder="e.g. 9876543215" value="{{VAL_PHONE}}" pattern="[0-9]{10}" title="Must be a 10-digit phone number" required>
+                                    <span class="form-hint">Enter standard 10-digit phone number</span>
+                                </div>
+
+                                <!-- Field 5: Gender -->
+                                <div class="form-group">
+                                    <label for="gender">Gender <span class="required">*</span></label>
+                                    <select id="gender" name="gender" class="form-control" required>
+                                        <option value="">-- Select Gender --</option>
+                                        <option value="Male" {{SEL_GENDER_MALE}}>Male</option>
+                                        <option value="Female" {{SEL_GENDER_FEMALE}}>Female</option>
+                                        <option value="Other" {{SEL_GENDER_OTHER}}>Other</option>
+                                    </select>
+                                </div>
+
+                                <!-- Field 6: Department -->
+                                <div class="form-group">
+                                    <label for="department">Department <span class="required">*</span></label>
+                                    <select id="department" name="department" class="form-control" required>
+                                        <option value="">-- Select Department --</option>
+                                        <option value="IT" {{SEL_DEPT_IT}}>Information Technology (IT)</option>
+                                        <option value="HR" {{SEL_DEPT_HR}}>Human Resources (HR)</option>
+                                        <option value="Finance" {{SEL_DEPT_FIN}}>Finance &amp; Accounts</option>
+                                        <option value="Marketing" {{SEL_DEPT_MKT}}>Marketing &amp; Sales</option>
+                                        <option value="Operations" {{SEL_DEPT_OPS}}>Operations</option>
+                                        <option value="Quality Assurance" {{SEL_DEPT_QA}}>Quality Assurance (QA)</option>
+                                    </select>
+                                </div>
+
+                                <!-- Field 7: Job Role -->
+                                <div class="form-group">
+                                    <label for="role">Job Role <span class="required">*</span></label>
+                                    <input type="text" id="role" name="role" class="form-control" placeholder="e.g. Test Automation Engineer" value="{{VAL_ROLE}}" required>
+                                </div>
+
+                                <!-- Field 8: Salary -->
+                                <div class="form-group">
+                                    <label for="salary">Monthly/Annual Salary (₹ / $) <span class="required">*</span></label>
+                                    <input type="number" id="salary" name="salary" class="form-control" placeholder="e.g. 65000" step="0.01" min="1" value="{{VAL_SALARY}}" required>
+                                    <span class="form-hint">Salary amount must be greater than zero</span>
+                                </div>
+
+                                <!-- Field 9: Joining Date -->
+                                <div class="form-group">
+                                    <label for="joiningDate">Joining Date <span class="required">*</span></label>
+                                    <input type="date" id="joiningDate" name="joiningDate" class="form-control" value="{{VAL_DATE}}" required>
+                                </div>
+
+                                <!-- Field 10: Status -->
+                                <div class="form-group">
+                                    <label for="status">Employee Status <span class="required">*</span></label>
+                                    <select id="status" name="status" class="form-control" required>
+                                        <option value="Active" {{SEL_STATUS_ACTIVE}}>Active</option>
+                                        <option value="Inactive" {{SEL_STATUS_INACTIVE}}>Inactive</option>
+                                    </select>
+                                </div>
+
+                                <!-- Buttons: Save Employee & Clear Form -->
+                                <div class="form-actions">
+                                    <button type="submit" class="btn btn-primary">&#128190; Save Employee</button>
+                                    <button type="reset" class="btn btn-secondary">&#128472; Clear Form</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

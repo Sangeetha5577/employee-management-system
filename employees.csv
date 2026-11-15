@@ -1,0 +1,6 @@
+id,name,email,phone,gender,department,role,salary,joiningDate,status
+EMP101,John Smith,john.smith@company.com,9876543210,Male,IT,Software Engineer,75000.00,2023-01-15,Active
+EMP102,Sarah Johnson,sarah.j@company.com,9876543211,Female,HR,HR Manager,65000.00,2022-06-10,Active
+EMP103,Michael Brown,michael.b@company.com,9876543212,Male,Finance,Financial Analyst,60000.00,2023-03-20,Active
+EMP104,Emily Davis,emily.d@company.com,9876543213,Female,Marketing,Marketing Lead,58000.00,2021-11-05,Inactive
+EMP105,Robert Wilson,robert.w@company.com,9876543214,Male,Operations,Operations Head,72000.00,2022-09-01,Active

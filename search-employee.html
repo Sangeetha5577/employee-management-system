@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Employees - Employee Management System</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="brand-icon">&#128188;</div>
+                <div class="brand-text">
+                    <h2>EMS Portal</h2>
+                    <span>Admin Panel</span>
+                </div>
+            </div>
+            
+            <ul class="sidebar-menu">
+                <li>
+                    <a href="/dashboard">
+                        <span class="menu-icon">&#128202;</span>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/add-employee">
+                        <span class="menu-icon">&#10133;</span>
+                        <span>Add Employee</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/employees">
+                        <span class="menu-icon">&#128101;</span>
+                        <span>Employee List</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/search" class="active">
+                        <span class="menu-icon">&#128269;</span>
+                        <span>Search Employee</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/logout">
+                        <span class="menu-icon">&#128682;</span>
+                        <span>Logout</span>
+                    </a>
+                </li>
+            </ul>
+            
+            <div class="sidebar-footer">
+                STQA Academic Project &copy; 2026
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <header class="topbar">
+                <div class="topbar-title">
+                    <h1>Search Employee Directory</h1>
+                    <p>Lookup records by Employee ID or Name (case-insensitive &amp; partial matches supported)</p>
+                </div>
+                <div class="user-badge">
+                    <div class="user-avatar">S</div>
+                    <span class="user-name">Sanman</span>
+                </div>
+            </header>
+
+            <div class="content-body">
+                {{ALERT_MESSAGE}}
+
+                <!-- Search Box Form -->
+                <div class="search-card">
+                    <form action="/search" method="GET" class="search-form">
+                        <input type="text" name="query" class="search-input" placeholder="Enter Employee ID (e.g. EMP101) or Name (e.g. John)..." value="{{SEARCH_QUERY}}" required autofocus>
+                        <button type="submit" class="btn btn-primary" style="padding: 12px 24px;">&#128269; Search</button>
+                        <a href="/search" class="btn btn-secondary" style="padding: 12px 18px;">Reset</a>
+                    </form>
+                </div>
+
+                <!-- Search Results Card -->
+                <div class="card">
+                    <div class="card-header">
+                        <h2>{{SEARCH_RESULT_TITLE}}</h2>
+                        <a href="/employees" class="btn btn-secondary" style="font-size: 13px;">View All Employees</a>
+                    </div>
+                    <div class="card-body" style="padding: 0;">
+                        <div class="table-responsive">
+                            <table class="custom-table">
+                                <thead>
+                                    <tr>
+                                        <th>Employee ID</th>
+                                        <th>Employee Name</th>
+                                        <th>Email</th>
+                                        <th>Phone</th>
+                                        <th>Department</th>
+                                        <th>Job Role</th>
+                                        <th>Salary</th>
+                                        <th>Joining Date</th>
+                                        <th>Status</th>
+                                        <th style="text-align: right; min-width: 170px;">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {{SEARCH_RESULT_ROWS}}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
